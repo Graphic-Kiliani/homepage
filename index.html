@@ -135,46 +135,60 @@
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
-    <tr onmouseout="nexf_stop()" onmouseover="nexf_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/publication/quadlink.png' width=100%>
-        </div>
-
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <!-- <a href="https://m-niemeyer.github.io/nexf/"> -->
-          <span class="papertitle">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span>
-        <!-- </a> -->
-        <br>
-        <strong>Yiheng Zhang, first author</strong> collarborated with 
-        <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wengping Wang</a>,
-        <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
-        <!-- <a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen</a>,
-        <a href="https://scholar.google.com/citations?user=pM4ebg0AAAAJ&hl=zh-CN">Zhe Zhu</a>,
-        <a href="https://www.caizhuojiang.com/">Zhuojiang Cai</a>,
-        <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
-        <a href="https://ruixu.me/">Rui Xu</a>,
-        <a href="https://federicotombari.github.io/">Zhiyang Dou</a>,
-        <a href="https://qiujiedong.github.io/">Qiujie Dong</a>,
-        <a href="https://jiepengwang.github.io/">Jiepeng Wang</a>,
-        <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
-        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>, -->
-        <a href="https://clinplayer.github.io/">Cheng Lin†</a>
-        
-
-        <br>
-        <em>under review, 2026</em>
-        <br>
-        <!-- <a href="https://m-niemeyer.github.io/nexf/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2510.08279">arXiv</a>
-        / -->
-        <!-- <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">Github</a> -->
-        <p></p>
-      </td>
-    </tr>
+            <tr onmouseout="nexf_stop()" onmouseover="nexf_start()"> 
+              <td style="padding:16px;width:20%;vertical-align:middle">
+                <div style="width:100%; height:140px; display:flex; align-items:center; justify-content:center;">
+                  <video id="quadlink_vid"
+                         width="100%"
+                         height="140"
+                         muted
+                         loop
+                         playsinline
+                         preload="metadata"
+                         style="object-fit:cover; border-radius:6px;">
+                    <source src="video/publication/quadlink.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </td>
+            
+              <td style="padding:8px;width:80%;vertical-align:middle">
+                <span class="papertitle">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span>
+                <br>
+                <strong>Yiheng Zhang</strong>,
+                <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
+                <a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen</a>,
+                <a href="https://www.caizhuojiang.com/">Zhuojiang Cai</a>,
+                <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
+                <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
+                <a href="https://qiujiedong.github.io/">Qiujie Dong</a>,
+                <a href="https://federicotombari.github.io/">Zhiyang Dou</a>,
+                <a href="https://jiepengwang.github.io/">Jiepeng Wang</a>,
+                <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
+                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wengping Wang</a>,
+                <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
+                <a href="https://clinplayer.github.io/">Cheng Lin†</a>
+                <br>
+                <em>under review, 2026</em>
+                <br>
+                <p></p>
+              </td>
+            </tr>
+            
+            <script>
+            function nexf_start() {
+              const v = document.getElementById("quadlink_vid");
+              if (!v) return;
+              v.currentTime = 0; // 不想每次从头播就删掉
+              const p = v.play();
+              if (p) p.catch(() => {});
+            }
+            function nexf_stop() {
+              const v = document.getElementById("quadlink_vid");
+              if (!v) return;
+              v.pause();
+            }
+            </script>
 	
     <td style="padding:16px;width:20%;vertical-align:middle">
       <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
@@ -257,7 +271,7 @@
           <span class="papertitle">PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data</span>
         </a>
         <br>
-        <a href="https://scholar.google.com/citations?user=pM4ebg0AAAAJ&hl=zh-CN">Zhe Zhu</a>,
+        <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
         <a href="https://henzler.github.io/">Le Wan</a>,
 				<a href="https://openreview.net/profile?id=~Le_Wan1">Rui Xu</a>,
         <strong>Yiheng Zhang</strong>, 
@@ -266,7 +280,7 @@
         <a href="https://clinplayer.github.io/">Cheng Lin</a>,
         <a href="https://scholar.google.com/citations?user=TdrJj8MAAAAJ&hl=en">Mingqiang Wei†</a>
         <br>
-        <em>ICLR</em>, 2026
+        <em>International Conference on Learning Representations(<strong>ICLR</strong>)</em>, 2026
         <br>
         <a href="https://czvvd.github.io/PartSAMPage/">project page</a>
         /
@@ -495,9 +509,9 @@
                 <br>
                 <a href="http://aima.cs.berkeley.edu/">Figures, "Artificial Intelligence: A Modern Approach", 3rd Edition</a>
               </td>
-            </tr>
-            
+            </tr>  
           </tbody></table> -->
+          
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
