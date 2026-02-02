@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <table style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -47,13 +47,55 @@
           </tbody>
           </table>
           
+          <!-- News Section -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>News</h2>
+                <div class="news-section">
+                  <div class="news-item">
+                    <span class="news-date">[Jan 2026]</span> <strong>PartSAM</strong> has been accepted to <strong>ICLR 2026</strong>!
+                  </div>
+                  <div class="news-item">
+                    <span class="news-date">[Dec 2025]</span> Attended <strong>SIGGRAPH Asia</strong> 2025 in Hong Kong, China.
+                  </div>
+                  <!-- Hidden items -->
+                  <div class="news-item hidden" id="more-news-1">
+                    <span class="news-date">[Sep 2025]</span> Started my journey as Research Scientist Intern at <strong>Tencent Games AI Center</strong>!
+                  </div>
+                  <button class="show-more-btn" onclick="toggleNews()">Show More</button>
+                </div>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <script>
+            let newsExpanded = false;
+            function toggleNews() {
+              newsExpanded = !newsExpanded;
+              const moreItems = document.querySelectorAll('[id^="more-news-"]');
+              const btn = document.querySelector('.show-more-btn');
+              
+              moreItems.forEach(item => {
+                if (newsExpanded) {
+                  item.classList.remove('hidden');
+                } else {
+                  item.classList.add('hidden');
+                }
+              });
+              
+              btn.textContent = newsExpanded ? 'Show Less' : 'Show More';
+            }
+          </script>
+          
+          
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research Experience</h2>
                 <p>
-                <span style="font-weight:bold; color:red;">
-                    I am actively seeking PhD opportunities for Fall 2026. Please feel free to reach out if you think I might be a good fit.
+                <span style="font-weight:bold; color:#c62828; background-color:#ffebee; padding:10px 16px; border-radius:6px; display:inline-block; border-left:4px solid #c62828;">
+                    🎓 I am actively seeking PhD opportunities for Fall 2026. Please feel free to reach out if you think I might be a good fit.
                 </span>
                   <ul style="margin-top:4px;margin-bottom:12px;padding-left:20px;">
                 
@@ -81,11 +123,11 @@
                   <a href="https://cggc.cs.technion.ac.il">Center for Graphics and Geometric Computing (Technion) </a>.
                 </li>
                  <!-- Logo  -->
-                <div style="margin-top:8px;text-align:left;">
-                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center" style="height:100px;margin-right:30px;">
-                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST" style="height:100px;margin-right:30px;">
-                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua" style="height:100px;margin-right:30px;">
-                <img src="images/research_exp/technion_logo.jpg" alt="Technion" style="height:100px;margin-right:30px;">
+                <div style="margin-top:16px;text-align:left;">
+                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
+                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
+                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
+                <img src="images/research_exp/technion_logo.jpg" alt="Technion" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
 
                 </div>
               </ul>
@@ -123,8 +165,8 @@
                 </ul>
 
                 <p>
-                  <span style="font-weight:bold; color:red;">
-                    I am always open to discussions and collaborations, feel free to contact me anytime!
+                  <span style="font-weight:bold; color:#0d47a1; background-color:#e3f2fd; padding:10px 16px; border-radius:6px; display:inline-block; border-left:4px solid #1976d2;">
+                    💡 I am always open to discussions and collaborations, feel free to contact me anytime!
                   </span>
                 </p>
               </td>
@@ -132,46 +174,58 @@
           </tbody>
         </table>
 
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
             <tr onmouseout="nexf_stop()" onmouseover="nexf_start()"> 
-              <td style="padding:16px;width:20%;vertical-align:middle">
-                <div style="width:100%; height:140px; display:flex; align-items:center; justify-content:center;">
-                  <video id="quadlink_vid"
-                         width="100%"
-                         height="140"
-                         muted
-                         loop
-                         playsinline
-                         preload="metadata"
-                         style="object-fit:cover; border-radius:6px;">
-                    <source src="video/publication/quadlink.mp4" type="video/mp4">
-                  </video>
+              <td colspan="2" style="padding:0px;">
+                <div class="publication-card">
+                  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+                    <tr>
+                      <td style="padding:16px;width:25%;vertical-align:middle">
+                        <div style="width:100%; height:180px; display:flex; align-items:center; justify-content:center;">
+                          <video id="quadlink_vid"
+                                 width="100%"
+                                 height="180"
+                                 muted
+                                 loop
+                                 playsinline
+                                 preload="metadata"
+                                 style="object-fit:cover; border-radius:6px;">
+                            <source src="video/publication/quadlink.mp4" type="video/mp4">
+                          </video>
+                        </div>
+                      </td>
+                    
+                      <td style="padding:16px;width:75%;vertical-align:middle">
+                        <span class="papertitle">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span>
+                        <br>
+                        <div style="margin-top:8px;">
+                          <span class="paper-tag tag-under-review">Under Review</span>
+                        </div>
+                        <br>
+                        <strong>Yiheng Zhang</strong>,
+                        <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
+                        <a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen</a>,
+                        <a href="https://www.caizhuojiang.com/">Zhuojiang Cai</a>,
+                        <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
+                        <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
+                        <a href="https://qiujiedong.github.io/">Qiujie Dong</a>,
+                        <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
+                        <a href="https://jiepengwang.github.io/">Jiepeng Wang</a>,
+                        <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
+                        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                        <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wengping Wang</a>,
+                        <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
+                        <a href="https://clinplayer.github.io/">Cheng Lin†</a>
+                        <br>
+                        <em>under review, 2026</em>
+                        <br>
+                        <p></p>
+                      </td>
+                    </tr>
+                  </table>
                 </div>
-              </td>
-            
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <span class="papertitle">QuadLink: Autoregressive Quad-Dominant Mesh Generation via Point-Relation Learning</span>
-                <br>
-                <strong>Yiheng Zhang</strong>,
-                <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
-                <a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen</a>,
-                <a href="https://www.caizhuojiang.com/">Zhuojiang Cai</a>,
-                <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
-                <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
-                <a href="https://qiujiedong.github.io/">Qiujie Dong</a>,
-                <a href="https://federicotombari.github.io/">Zhiyang Dou</a>,
-                <a href="https://jiepengwang.github.io/">Jiepeng Wang</a>,
-                <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
-                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
-                <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wengping Wang</a>,
-                <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
-                <a href="https://clinplayer.github.io/">Cheng Lin†</a>
-                <br>
-                <em>under review, 2026</em>
-                <br>
-                <p></p>
               </td>
             </tr>
             
@@ -190,160 +244,206 @@
             }
             </script>
 	
-    <td style="padding:16px;width:20%;vertical-align:middle">
-      <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-        <img src='images/publication/M3Dlayout.png' width="160">
-      </div>
-
-      </script>
-    </td>
-    <td style="padding:8px;width:80%;vertical-align:middle">
-      <a href="https://graphic-kiliani.github.io/M3DLayout/">
-    <span class="papertitle">M3DLayout: A Multi-Source Dataset of 3D Indoor Layouts and Structured Descriptions for 3D Generation
-</span>
-      </a>
-      <br>
-      <strong>Yiheng Zhang*</strong>,
-      <a href="https://www.caizhuojiang.com/">Zhuojiang Cai*</a>,
-      <a href="https://openreview.net/profile?id=~Mingdao_Wang1">Mingdao Wang*</a>,
-      <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
-      <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
-      <a href="https://openreview.net/profile?id=~Li_Lin10"> Li Lin</a>,
-      <a href="https://www.bing.com/search?q=yuwang%20wang&qs=n&form=QBRE&sp=-1&lq=0&pq=yuwang%20wan&sc=9-10&sk=&cvid=1EBC3BE218C94F33917E43FCD2A2804C">Yuwang Wang†</a>
-      <br>
-      <em>under review</em>, 2026
-      <br>
-      <a href="https://graphic-kiliani.github.io/M3DLayout/">project page</a>
-      /
-      <a href="https://arxiv.org/abs/2509.23728">arXiv</a>
-      /
-      <a href="https://github.com/Graphic-Kiliani/M3DLayout-A-Multi-Source-Dataset-of-3D-Indoor-Layouts-and-Structured-Descriptions?tab=readme-ov-file">Github</a>
-      <p></p>
-    </td>
+    <tr>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='video/publication/M3DLayoutlivingroom.gif' width="100%" style="border-radius:6px; object-fit:cover; height:180px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://graphic-kiliani.github.io/M3DLayout/">
+                  <span class="papertitle">M3DLayout: A Multi-Source Dataset of 3D Indoor Layouts and Structured Descriptions for 3D Generation</span>
+                </a>
+                <br>
+                <div style="margin-top:8px;">
+                  <span class="paper-tag tag-under-review">Under Review</span>
+                </div>
+                <br>
+                <strong>Yiheng Zhang*</strong>,
+                <a href="https://www.caizhuojiang.com/">Zhuojiang Cai*</a>,
+                <a href="https://openreview.net/profile?id=~Mingdao_Wang1">Mingdao Wang*</a>,
+                <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
+                <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
+                <a href="https://openreview.net/profile?id=~Li_Lin10"> Li Lin</a>,
+                <a href="https://www.bing.com/search?q=yuwang%20wang&qs=n&form=QBRE&sp=-1&lq=0&pq=yuwang%20wan&sc=9-10&sk=&cvid=1EBC3BE218C94F33917E43FCD2A2804C">Yuwang Wang†</a>
+                <br>
+                <em>under review</em>, 2026
+                <br>
+                <a href="https://graphic-kiliani.github.io/M3DLayout/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2509.23728">arXiv</a>
+                /
+                <a href="https://github.com/Graphic-Kiliani/M3DLayout-A-Multi-Source-Dataset-of-3D-Indoor-Layouts-and-Structured-Descriptions?tab=readme-ov-file">Github</a>
+                <p></p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
 
 
 
     <tr onmouseout="ever_stop()" onmouseover="ever_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/publication/flashmesh.jpg' width=100%>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/publication/flashmesh.jpg' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://zazexy.github.io/flashmesh.github.io/">
+                  <span class="papertitle">FlashMesh: Faster and Better Autoregressive Mesh Synthesis via Structured Speculation</span>
+                </a>
+                <br>
+                <div style="margin-top:8px;">
+                  <span class="paper-tag tag-under-review">Under Review</span>
+                </div>
+                <br>
+                <a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen*</a>, 
+                <strong>Yiheng Zhang*</strong>,
+                <a href="https://openreview.net/profile?id=~Chen_Tang1">Chen Tang</a>,
+                <a href="https://openreview.net/profile?id=~Chuan_Ping1">Chuan Ping</a>,
+                <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
+                <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
+                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                <a href="https://www.ece.pku.edu.cn/en/info/1057/1179.htm">Ronggang Wang</a>,
+                <a href="https://shengfenghe.github.io/">Shengfeng He†</a>
+                <br>
+                <em>under review</em>, 2026
+                <br>
+                <a href="https://zazexy.github.io/flashmesh.github.io/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2511.15618">arXiv</a>
+                /
+                <a href="https://github.com/Graphic-Kiliani/FlashMesh-Faster-and-Better-Autoregressive-Mesh-Synthesis">Github</a>
+                <p></p>
+              </td>
+            </tr>
+          </table>
         </div>
-
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://zazexy.github.io/flashmesh.github.io/">
-			<span class="papertitle">FlashMesh: Faster and Better Autoregressive Mesh Synthesis via Structured Speculation
-</span>
-        </a>
-        <br>
-				<a href="https://openreview.net/profile?id=~Tingrui_Shen1">Tingrui Shen*</a>, 
-				<strong>Yiheng Zhang*</strong>,
-				<a href="https://openreview.net/profile?id=~Chen_Tang1">Chen Tang</a>,
-        <a href="https://openreview.net/profile?id=~Chuan_Ping1">Chuan Ping</a>,
-        <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
-        <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
-        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
-        <a href="https://www.ece.pku.edu.cn/en/info/1057/1179.htm">Ronggang Wang</a>,
-        <a href="https://shengfenghe.github.io/">Shengfeng He†</a>
-				<br>
-        <em>under review</em>, 2026
-        <br>
-        <a href="https://zazexy.github.io/flashmesh.github.io/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2511.15618">arXiv</a>
-        /
-        <a href="https://github.com/Graphic-Kiliani/FlashMesh-Faster-and-Better-Autoregressive-Mesh-Synthesis">Github</a>
-        <p></p>
       </td>
     </tr>
 
     <tr onmouseout="r2r_stop()" onmouseover="r2r_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/publication/PartSAM_teaser.png' width=100%>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/publication/PartSAM_teaser.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://czvvd.github.io/PartSAMPage/">
+                  <span class="papertitle">PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data</span>
+                </a>
+                <br>
+                <div style="margin-top:8px;">
+                  <span class="paper-tag tag-conference">ICLR 2026</span>
+                </div>
+                <br>
+                <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
+                <a href="https://henzler.github.io/">Le Wan</a>,
+                <a href="https://openreview.net/profile?id=~Le_Wan1">Rui Xu</a>,
+                <strong>Yiheng Zhang</strong>, 
+                <a href="https://chenhonghua.github.io/clay.github.io/">Honghua Chen</a>, 
+                <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
+                <a href="https://clinplayer.github.io/">Cheng Lin</a>,
+                <a href="https://scholar.google.com/citations?user=TdrJj8MAAAAJ&hl=en">Mingqiang Wei†</a>
+                <br>
+                <em>International Conference on Learning Representations (<strong>ICLR</strong>)</em>, 2026
+                <br>
+                <a href="https://czvvd.github.io/PartSAMPage/">project page</a>
+                /
+                <a href="https://arxiv.org/abs/2509.21965">arXiv</a>
+                /
+                <a href="https://github.com/czvvd/PartSAM">Github</a>
+                <p></p>
+              </td>
+            </tr>
+          </table>
         </div>
-        
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://czvvd.github.io/PartSAMPage/">
-          <span class="papertitle">PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data</span>
-        </a>
-        <br>
-        <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
-        <a href="https://henzler.github.io/">Le Wan</a>,
-				<a href="https://openreview.net/profile?id=~Le_Wan1">Rui Xu</a>,
-        <strong>Yiheng Zhang</strong>, 
-        <a href="https://chenhonghua.github.io/clay.github.io/">Honghua Chen</a>, 
-        <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
-        <a href="https://clinplayer.github.io/">Cheng Lin</a>,
-        <a href="https://scholar.google.com/citations?user=TdrJj8MAAAAJ&hl=en">Mingqiang Wei†</a>
-        <br>
-        <em>International Conference on Learning Representations(<strong>ICLR</strong>)</em>, 2026
-        <br>
-        <a href="https://czvvd.github.io/PartSAMPage/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2509.21965">arXiv</a>
-        /
-        <a href="https://github.com/czvvd/PartSAM">Github</a>
-        <p></p>
       </td>
     </tr>
 
 
     <tr onmouseout="simvs_stop()" onmouseover="simvs_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/publication/lss3d.png' width=100%>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/publication/lss3d.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://arxiv.org/abs/2511.12202">
+                  <span class="papertitle">LSS3D: Learnable Spatial Shifting for Consistent and High-Quality 3D Generation from Single-Image</span>
+                </a>
+                <br>
+                <div style="margin-top:8px;">
+                  <span class="paper-tag tag-conference">IEEE MMSP 2025</span>
+                </div>
+                <br>
+                <a href="https://www.caizhuojiang.com/">Zhuojiang Cai*</a>,
+                <strong>Yiheng Zhang*</strong>,
+                <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
+                <a href="https://openreview.net/profile?id=~Mingdao_Wang1">Mingdao Wang</a>,
+                <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang†</a>
+                <br>
+                <em>accepted by IEEE MMSP</em>, 2025 (IF: 7.3)
+                <br>
+                <a href="https://arxiv.org/abs/2511.12202">arXiv</a>
+                <p></p>
+              </td>
+            </tr>
+          </table>
         </div>
-
-
-        </script>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://arxiv.org/abs/2511.12202">
-          <span class="papertitle">LSS3D: Learnable Spatial Shifting for Consistent and High-Quality 3D Generation from Single-Image</span>
-        </a>
-        <br>
-        <a href="https://www.caizhuojiang.com/">Zhuojiang Cai*</a>,
-        <strong>Yiheng Zhang*</strong>,
-        <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
-        <a href="https://openreview.net/profile?id=~Mingdao_Wang1">Mingdao Wang</a>,
-        <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang†</a>
-        <br>
-        <em>accepted by IEEE MMSP</em>, 2025 (IF: 7.3)
-        <br>
-        <!-- <a href="https://alextrevithick.github.io/simvs/">project page</a>
-        / -->
-        <a href="https://arxiv.org/abs/2511.12202">arXiv</a>
-        <p></p>
       </td>
     </tr>
 
 
     <tr onmouseout="simvs_stop()" onmouseover="simvs_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/publication/cyclegan.png' width=100%>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/publication/cyclegan.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://electronicimaging.spiedigitallibrary.org/conference-proceedings-of-spie/12168/121680J/Animation-image-transfer-using-CycleGAN/10.1117/12.2631194.short">
+                  <span class="papertitle">Animation image transfer using CycleGAN</span>
+                </a>
+                <br>
+                <div style="margin-top:8px;">
+                  <span class="paper-tag tag-conference">ICCAID 2022</span>
+                </div>
+                <br>
+                Zhixun Liu*,
+                <strong>Yiheng Zhang*</strong>,
+                Xinyao Han,
+                Wanting Zhou
+                <br>
+                <em>accepted by ICCAID</em>, 2022 
+                <br>
+                <p></p>
+              </td>
+            </tr>
+          </table>
         </div>
-      
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://electronicimaging.spiedigitallibrary.org/conference-proceedings-of-spie/12168/121680J/Animation-image-transfer-using-CycleGAN/10.1117/12.2631194.short">
-          <span class="papertitle">Animation image transfer using CycleGAN</span>
-        </a>
-        <br>
-        Zhixun Liu*,
-        <strong>Yiheng Zhang*</strong>,
-        Xinyao Han,
-        Wanting Zhou
-        <br>
-        <em>accepted by ICCAID</em>, 2022 
-        <br>
-        <!-- <a href="https://alextrevithick.github.io/simvs/">project page</a>
-        / -->
-        <p></p>
       </td>
     </tr>
 </tbody></table>
@@ -358,64 +458,65 @@
       </tbody>
     </table>
 
-  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <table style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;">
     <tbody>
     <tr onmouseout="nexf_stop()" onmouseover="nexf_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div style="width:100%; height:140px; display:flex; align-items:center;justify-content:center;">
-          <img src='images/project/quad.png' width=100%>
-
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/project/quad.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">
+                  <span class="papertitle">Tri2Quad: Geometry-Aware Triangle-to-Quad Mesh Conversion Operator</span>
+                </a>
+                <br>
+                Advisor: Professor <a href="https://clinplayer.github.io/">Cheng Lin</a>, Professor <a href="https://liuyuan-pal.github.io/"> Yuan Liu</a>, Professor <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>
+                <br><br>
+                <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">Github</a>
+                <p></p>
+                <p>
+                  I Developed a high-performance triangle-to-quad dominant conversion operator, formulated as a maximum-weight matching problem on the triangle adjacency graph and solved with modified Blossom matchers for quad-dominant remeshing, which integrated rich geometric filters into candidate edge generation before optimization to improve solver efficiency, with globally consistent normals' ensurance.
+                  The operator has been <b>the key data-curation step</b> of my HybridGen SIGGRAPH paper and <b>deployed in Tencent's production pipeline</b>, achieving state-of-the-art quad quality compared with PyMeshLab, Blender's built-in remesher, and Hunyuan's ILP-based operator.
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
-       
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">
-          <span class="papertitle">Tri2Quad: Geometry-Aware Triangle-to-Quad Mesh Conversion Operator</span>
-        </a>
-        <br>
-        Advisor: Professor <a href="https://clinplayer.github.io/">Cheng Lin</a>, Professor <a href="https://liuyuan-pal.github.io/"> Yuan Liu</a>, Professor <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>
-
-        <br>
-        <!-- <a href="https://m-niemeyer.github.io/nexf/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2510.08279">arXiv</a>
-        / -->
-        <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">Github</a>
-        <p></p>
-        <p>
-		        I Developed a high-performance triangle-to-quad dominant conversion operator, formulated as a maximum-weight matching problem on the triangle adjacency graph and solved with modified Blossom matchers for quad-dominant remeshing, which integrated rich geometric filters into candidate edge generation before optimization to improve solver efficiency, with globally consistent normals' ensurance.
-            The operator has been <b>the key data-curation step</b> of my HybridGen SIGGRAPH paper and <b>deployed in Tencent's production pipeline</b>, achieving state-of-the-art quad quality compared with PyMeshLab, Blender's built-in remesher, and Hunyuan's ILP-based operator.
-        </p>
       </td>
     </tr>
 
         <tr onmouseout="nexf_stop()" onmouseover="nexf_start()">
-      <td style="padding:16px;width:20%;vertical-align:middle">
-        <div class="one">
-					  <img src='images/project/operator.png' width=100%>
+      <td colspan="2" style="padding:0px;">
+        <div class="publication-card">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
+            <tr>
+              <td style="padding:16px;width:25%;vertical-align:middle">
+                <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
+                  <img src='images/project/operator.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                </div>
+              </td>
+              <td style="padding:16px;width:75%;vertical-align:middle">
+                <a href="https://github.com/Graphic-Kiliani/Hybrid-Intrinsic-Extrinsic-Spectral-Operators-for-DiffusionNet">
+                  <span class="papertitle">Hybrid Intrinsic–Extrinsic Spectral Operators for DiffusionNet</span>
+                </a>
+                <br>
+                Advisor: Professor <a href="https://mirela.net.technion.ac.il/">Mirela Ben-Chen</a>
+                <br><br>
+                <a href="https://github.com/Graphic-Kiliani/Hybrid-Intrinsic-Extrinsic-Spectral-Operators-for-DiffusionNet">Github</a>
+                <p></p>
+                <p>
+                  Replaced and complemented the standard Laplace-Beltrami operator in DiffusionNet with Steklov and elastic-basis operators, enabling the network to jointly encode intrinsic surface geometry and extrinsic embedding information.
+                  Demonstrated consistent improvements over the original DiffusionNet baseline on mesh segmentation, correspondence, and feature extraction benchmarks, showcasing a concrete case where classical geometry-processing operators and deep learning architectures are tightly integrated for better geometric understanding.
+                </p>
+              </td>
+            </tr>
+          </table>
         </div>
-      </td>
-      <td style="padding:8px;width:80%;vertical-align:middle">
-        <!-- <a href="https://m-niemeyer.github.io/nexf/"> -->
-          <a href="https://github.com/Graphic-Kiliani/Hybrid-Intrinsic-Extrinsic-Spectral-Operators-for-DiffusionNet">
-            <span class="papertitle">Hybrid Intrinsic–Extrinsic Spectral Operators for DiffusionNet</span>
-          </a>
-        <!-- </a> -->
-        <br>
-        Advisor: Professor <a href="https://mirela.net.technion.ac.il/">Mirela Ben-Chen</a>
-
-        <br>
-        <a href="https://github.com/Graphic-Kiliani/Hybrid-Intrinsic-Extrinsic-Spectral-Operators-for-DiffusionNet">Github</a>
-        <!-- <a href="https://m-niemeyer.github.io/nexf/">project page</a>
-        /
-        <a href="https://arxiv.org/abs/2510.08279">arXiv</a>
-        / -->
-        <!-- <a href="">Github</a>
-        <p></p> -->
-        <p>
-		Replaced and complemented the standard Laplace-Beltrami operator in DiffusionNet with Steklov and elastic-basis operators, enabling the network to jointly encode intrinsic surface geometry and extrinsic embedding information.
-    Demonstrated consistent improvements over the original DiffusionNet baseline on mesh segmentation, correspondence, and feature extraction benchmarks, showcasing a concrete case where classical geometry-processing operators and deep learning architectures are tightly integrated for better geometric understanding.
-        </p>
       </td>
     </tr>
     </tbody>
