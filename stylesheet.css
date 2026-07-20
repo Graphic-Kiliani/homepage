@@ -242,3 +242,48 @@ span.highlight {
   color: #e65100;
   border: 1px solid #ffb74d;
 }
+/* Large, aligned publication media with complete, uncropped images. */
+.publication-card > table {
+  table-layout: fixed;
+}
+
+.publication-card td[style*="width:25%"] {
+  width: 34% !important;
+}
+
+.publication-card td[style*="width:75%"] {
+  width: 66% !important;
+}
+
+.publication-card td[style*="width:25%"] > div {
+  width: 100% !important;
+  height: 240px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.publication-card td[style*="width:25%"] img,
+.publication-card td[style*="width:25%"] video {
+  display: block;
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: contain !important;
+  object-position: center center;
+  border-radius: 6px;
+}
+
+@media (max-width: 700px) {
+  .publication-card > table > tbody > tr {
+    display: block;
+  }
+
+  .publication-card td[style*="width:25%"],
+  .publication-card td[style*="width:75%"] {
+    display: block;
+    width: 100% !important;
+  }
+}
