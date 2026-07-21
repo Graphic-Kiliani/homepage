@@ -929,7 +929,12 @@
             var wbtn = e.target.closest('button[data-wire]');
             if (wbtn) {
               wireStyle = wbtn.getAttribute('data-wire');
-              try { localStorage.setItem('yz-wire-style', wireStyle); } catch (err) {}
+              // Picking a wireframe style implies switching to wireframe mode.
+              currentMode = 'wireframe';
+              try {
+                localStorage.setItem('yz-wire-style', wireStyle);
+                localStorage.setItem('yz-shading', 'wireframe');
+              } catch (err) {}
               updateVisibility();
               refreshButtons();
               return;
