@@ -17,7 +17,11 @@
     <meta property="og:image" content="images/selfie/selfie.jpg">
     <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
     <link rel="icon" href="images/favicon/horse.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
       /* Set theme before first paint to avoid a flash of the wrong color scheme. */
       (function () {
@@ -35,11 +39,48 @@
 
   <body>
     <canvas id="bg-canvas"></canvas>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark / light theme" title="Switch theme">
-      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </button>
-    <table style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+    <nav class="site-nav" aria-label="Site navigation">
+      <a class="nav-name" href="#top">Yiheng Zhang</a>
+      <div class="nav-links">
+        <a href="#news">News</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#service">Service</a>
+        <a href="#misc">Misc</a>
+      </div>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark / light theme" title="Switch theme">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+    </nav>
+    <div class="shading-toolbar" id="shading-toolbar" role="group" aria-label="Background shading mode">
+      <button type="button" data-mode="solid" aria-pressed="false">Solid</button>
+      <button type="button" data-mode="wireframe" aria-pressed="false">Wireframe</button>
+      <button type="button" data-mode="points" aria-pressed="false">Points</button>
+    </div>
+    <a href="#top" class="horse-link" aria-label="Back to top" title="Back to top">
+      <svg class="horse-wire" viewBox="0 0 120 120" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 50 6 L 62 15 L 74 26 L 80 40 L 86 58 L 90 78 L 96 108 L 30 108 L 34 84 L 36 72 L 24 68 L 13 59 L 10 51 L 19 43 L 30 32 L 40 20 L 44 16 Z"/>
+          <path d="M 50 6 L 45 17"/>
+          <path d="M 50 6 L 55 15"/>
+          <path d="M 40 20 L 46 44 L 19 43"/>
+          <path d="M 46 44 L 42 62 L 24 68"/>
+          <path d="M 46 44 L 66 44 L 80 40"/>
+          <path d="M 42 62 L 66 44"/>
+          <path d="M 42 62 L 56 84 L 34 84"/>
+          <path d="M 66 44 L 70 74 L 56 84"/>
+          <path d="M 70 74 L 84 92 L 96 108"/>
+          <path d="M 56 84 L 60 108"/>
+          <path d="M 56 84 L 30 108"/>
+          <path d="M 74 26 L 66 30"/>
+          <circle cx="37" cy="40" r="2.4"/>
+          <path d="M 33 33 L 44 31"/>
+        </g>
+      </svg>
+    </a>
+    <table id="top" style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
           <table class="intro-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -73,7 +114,7 @@
           </table>
           
           <!-- News Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table id="news" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>News</h2>
@@ -123,35 +164,35 @@
           </script>
           
           
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table id="experience" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research Experience</h2>
-                <ul style="margin-top:4px;margin-bottom:12px;padding-left:20px;">
-                <li style="margin-bottom:4px;">
-                  <span style="font-weight:bold;">Sep. 2025 – Now :</span>
-                  &nbsp;Research Scientist Intern,
-                  <a href="https://game.qq.com/web202406/#/pc/home">Tencent Games AI Center</a>.
-                </li>
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <span class="timeline-date">Sep 2025 — Now</span>
+                    Research Scientist Intern,
+                    <a href="https://game.qq.com/web202406/#/pc/home">Tencent Games AI Center</a>.
+                  </div>
 
-                <li style="margin-bottom:4px;">
-                  <span style="font-weight:bold;">June. 2025 – Now :</span>
-                  &nbsp;Remote Research Intern,
-                  <a href="https://isd.hkust.edu.hk">Intelligent Graphics Lab (HKUST)</a>.
-                </li>
+                  <div class="timeline-item">
+                    <span class="timeline-date">Jun 2025 — Now</span>
+                    Remote Research Intern,
+                    <a href="https://isd.hkust.edu.hk">Intelligent Graphics Lab (HKUST)</a>.
+                  </div>
 
-                <li style="margin-bottom:4px;">
-                  <span style="font-weight:bold;">Oct. 2024 – Aug. 2025 :</span>
-                  &nbsp;Research Intern,
-                  <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>.
-                </li>
+                  <div class="timeline-item">
+                    <span class="timeline-date">Oct 2024 — Aug 2025</span>
+                    Research Intern,
+                    <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>.
+                  </div>
 
-                <li style="margin-bottom:4px;">
-                  <span style="font-weight:bold;">Jul. 2024 – Aug. 2024 :</span>
-                  &nbsp;Summer Research Intern,
-                  <a href="https://cggc.cs.technion.ac.il">Center for Graphics and Geometric Computing (Technion) </a>.
-                </li>
-              </ul>
+                  <div class="timeline-item">
+                    <span class="timeline-date">Jul 2024 — Aug 2024</span>
+                    Summer Research Intern,
+                    <a href="https://cggc.cs.technion.ac.il">Center for Graphics and Geometric Computing (Technion)</a>.
+                  </div>
+                </div>
               <!-- Logo  -->
               <div class="research-logos">
                 <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center">
@@ -165,7 +206,7 @@
 
 
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table id="research" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tbody>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
@@ -202,7 +243,7 @@
           </tbody>
         </table>
 
-          <table style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table id="publications" style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
             <tr onmouseout="ever_stop()" onmouseover="ever_start()">
@@ -537,7 +578,7 @@
       </td>
     </tr>
 
-    <tr class="service-row">
+    <tr class="service-row" id="service">
       <td align="center" style="padding:16px;width:20%;vertical-align:middle">
          <div class="colored-box">
          <h2>Academic Service</h2>
@@ -773,7 +814,7 @@
           </tbody></table>  -->
 
           <!-- Miscellaneous Section -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+          <table id="misc" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
                 <td style="padding:16px;width:100%;vertical-align:middle">
@@ -799,12 +840,133 @@
       </tr>
     </table>
     <script>
-      /* Lightweight 3D wireframe mesh background — reflects the graphics research theme. */
-      (function() {
-        const canvas = document.getElementById('bg-canvas');
+      /* Hero background: a Three.js torus knot with viewport-style shading modes
+         (Solid / Wireframe / Points). Falls back to a 2D lattice if the CDN fails. */
+      (function () {
+        var canvas = document.getElementById('bg-canvas');
         if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let width, height, dpr;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var toolbar = document.getElementById('shading-toolbar');
+        var objs = {};
+        var currentMode = 'wireframe';
+        try {
+          currentMode = localStorage.getItem('yz-shading') || 'wireframe';
+        } catch (e) {}
+
+        function applyMode(mode) {
+          currentMode = mode;
+          ['solid', 'wireframe', 'points'].forEach(function (k) {
+            if (objs[k]) objs[k].visible = (k === mode);
+          });
+          if (toolbar) {
+            var btns = toolbar.querySelectorAll('button[data-mode]');
+            for (var i = 0; i < btns.length; i++) {
+              var active = btns[i].getAttribute('data-mode') === mode;
+              btns[i].classList.toggle('active', active);
+              btns[i].setAttribute('aria-pressed', active ? 'true' : 'false');
+            }
+          }
+        }
+
+        if (toolbar) {
+          toolbar.addEventListener('click', function (e) {
+            var btn = e.target.closest('button[data-mode]');
+            if (!btn) return;
+            var mode = btn.getAttribute('data-mode');
+            try { localStorage.setItem('yz-shading', mode); } catch (err) {}
+            applyMode(mode);
+          });
+        }
+
+        function isDark() {
+          return document.documentElement.getAttribute('data-theme') === 'dark';
+        }
+
+        function start3D() {
+          if (toolbar) toolbar.classList.add('visible');
+
+          var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+          var scene = new THREE.Scene();
+          var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+          camera.position.z = 5.4;
+
+          var geometry = new THREE.TorusKnotGeometry(0.9, 0.27, 260, 40);
+          var solidMat = new THREE.MeshStandardMaterial({ flatShading: true, metalness: 0.15, roughness: 0.5, transparent: true });
+          var wireMat = new THREE.MeshBasicMaterial({ wireframe: true, transparent: true });
+          var pointsMat = new THREE.PointsMaterial({ size: 0.016, transparent: true });
+
+          objs.solid = new THREE.Mesh(geometry, solidMat);
+          objs.wireframe = new THREE.Mesh(geometry, wireMat);
+          objs.points = new THREE.Points(geometry, pointsMat);
+          // Shift down a little so the knot clears the fixed glass navbar.
+          objs.solid.position.y = -0.3;
+          objs.wireframe.position.y = -0.3;
+          objs.points.position.y = -0.3;
+          scene.add(objs.solid);
+          scene.add(objs.wireframe);
+          scene.add(objs.points);
+
+          scene.add(new THREE.AmbientLight(0xffffff, 0.75));
+          var keyLight = new THREE.DirectionalLight(0x93c5fd, 1.1);
+          keyLight.position.set(2, 3, 4);
+          scene.add(keyLight);
+          var rimLight = new THREE.DirectionalLight(0x1d4ed8, 0.9);
+          rimLight.position.set(-3, -2, -4);
+          scene.add(rimLight);
+
+          function applyColors() {
+            var dark = isDark();
+            solidMat.color.set(dark ? 0x3b82f6 : 0x1d4ed8);
+            solidMat.opacity = dark ? 0.55 : 0.4;
+            wireMat.color.set(dark ? 0x93c5fd : 0x0f2477);
+            wireMat.opacity = dark ? 0.5 : 0.3;
+            pointsMat.color.set(dark ? 0x60a5fa : 0x1d4ed8);
+            pointsMat.opacity = dark ? 0.6 : 0.4;
+          }
+          applyColors();
+          applyMode(currentMode);
+
+          var targetX = 0, targetY = 0, curX = 0, curY = 0;
+          window.addEventListener('mousemove', function (e) {
+            targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+            targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+          });
+
+          function resize3D() {
+            var w = window.innerWidth;
+            var h = window.innerHeight;
+            renderer.setSize(w, h, false);
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+          }
+          window.addEventListener('resize', resize3D);
+          resize3D();
+
+          var group = [objs.solid, objs.wireframe, objs.points];
+          function frame() {
+            applyColors();
+            curX += (targetX - curX) * 0.04;
+            curY += (targetY - curY) * 0.04;
+            for (var i = 0; i < group.length; i++) {
+              group[i].rotation.y += 0.0022;
+              group[i].rotation.x = 0.25 + curY * 0.3;
+              group[i].rotation.z = curX * 0.12;
+            }
+            camera.position.x = curX * 0.35;
+            camera.position.y = -curY * 0.25;
+            camera.lookAt(0, -0.3, 0);
+            renderer.render(scene, camera);
+            requestAnimationFrame(frame);
+          }
+          frame();
+        }
+
+        function start2D() {
+          const ctx = canvas.getContext('2d');
+          let width, height, dpr;
 
         function resize() {
           dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -931,6 +1093,11 @@
           requestAnimationFrame(draw);
         }
         draw();
+        }
+
+        if (window.THREE) start3D();
+        else if (document.readyState === 'complete') start2D();
+        else window.addEventListener('load', function () { (window.THREE ? start3D : start2D)(); }, { once: true });
       })();
     </script>
 
@@ -957,6 +1124,30 @@
           if (!stored) {
             root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
           }
+        });
+      })();
+    </script>
+
+    <script>
+      /* Highlight the nav link of the section currently in view. */
+      (function () {
+        var links = document.querySelectorAll('.nav-links a');
+        if (!links.length || !('IntersectionObserver' in window)) return;
+        var map = {};
+        links.forEach(function (a) {
+          map[a.getAttribute('href').slice(1)] = a;
+        });
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            links.forEach(function (a) { a.classList.remove('active'); });
+            var link = map[entry.target.id];
+            if (link) link.classList.add('active');
+          });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        Object.keys(map).forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el) observer.observe(el);
         });
       })();
     </script>
