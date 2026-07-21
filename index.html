@@ -191,7 +191,7 @@
                   </div>
 
                   <div class="timeline-item">
-                    <span class="timeline-date">Jun 2025 — Now</span>
+                    <span class="timeline-date">Jun 2025 — Jul 2026</span>
                     Remote Research Intern,
                     <a href="https://isd.hkust.edu.hk">Intelligent Graphics Lab (HKUST)</a>.
                   </div>
@@ -199,7 +199,7 @@
                   <div class="timeline-item">
                     <span class="timeline-date">Oct 2024 — Aug 2025</span>
                     Research Intern,
-                    <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a>.
+                    <a href="https://www.tsinghua.edu.cn/">Metaverse AI Interdisciplinary Innovation Lab (THU)</a>.
                   </div>
 
                   <div class="timeline-item">
@@ -841,11 +841,30 @@
                   <p style="margin-bottom:20px;">
                     My hobbies include playing soccer<img src="images/favicon/soccer.png" alt="Soccer" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> &amp; badminton<img src="images/favicon/badminton.png" alt="Badminton" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> &amp; Chinese chess<img src="images/favicon/chinesechess.png" alt="Chinese Chess" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, fitness<img src="images/favicon/fitness.png" alt="Fitness" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, and traveling all around the world<img src="images/favicon/travelling.png" alt="Travelling" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;">.
                   </p>
-                  <div style="text-align:center;margin-top:50px;">
+                  <div id="clustrmaps-wrap" style="text-align:center;margin-top:50px;">
                     <div style="width:260px; height:260px; margin:0 auto; overflow:hidden;">
-                      <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=P6Z6Z_3hDj_Gb5F9MiQqWIaLwo3ocR_-JdX4D6M6PeY"></script>
+                      <script type="text/javascript" id="clstr_globe" src="https://clustrmaps.com/globe.js?d=P6Z6Z_3hDj_Gb5F9MiQqWIaLwo3ocR_-JdX4D6M6PeY"
+                              onerror="document.getElementById('clustrmaps-wrap').style.display='none'"></script>
                     </div>
                   </div>
+                  <script>
+                    /* Graceful fallback: hide the visitor globe if clustrmaps.com is unreachable. */
+                    (function () {
+                      function checkGlobe() {
+                        var wrap = document.getElementById('clustrmaps-wrap');
+                        if (!wrap) return;
+                        // globe.js injects an iframe/img/canvas on success
+                        if (!wrap.querySelector('iframe, img, canvas, object, embed')) {
+                          wrap.style.display = 'none';
+                        }
+                      }
+                      if (document.readyState === 'complete') {
+                        setTimeout(checkGlobe, 4000);
+                      } else {
+                        window.addEventListener('load', function () { setTimeout(checkGlobe, 4000); });
+                      }
+                    })();
+                  </script>
                 </td>
               </tr>
             </tbody>
