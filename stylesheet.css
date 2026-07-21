@@ -166,6 +166,19 @@ strong {
   font-weight: 700;
 }
 
+/* Make the owner's name pop in author lists, in both themes */
+strong.me {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+  padding: 1px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] strong.me {
+  color: #0b1428;
+}
+
 h2 {
   margin: 0;
   font-weight: 700;
@@ -506,6 +519,13 @@ span.highlight {
   background-color: var(--surface);
   border: 2px solid var(--accent);
   box-shadow: 0 0 8px rgba(59, 130, 246, 0.55);
+  transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.timeline-item:hover::before {
+  background-color: var(--accent);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.95);
+  transform: scale(1.3);
 }
 
 .timeline-date {
@@ -1020,5 +1040,9 @@ button {
 
   .horse-link:hover .horse-wire {
     animation: none;
+  }
+
+  .timeline-item:hover::before {
+    transform: none;
   }
 }
