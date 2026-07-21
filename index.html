@@ -9,14 +9,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Yiheng Zhang (张一恒) — PhD student at HKUST Intelligent Graphics Lab. Research in 3D vision, computer graphics, geometry processing, and physically based simulation.">
     <meta name="keywords" content="Yiheng Zhang, Computer Graphics, 3D Vision, Geometry Processing, Mesh Generation, HKUST">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f6fb">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070d1c">
+    <meta property="og:title" content="Yiheng Zhang 张一恒">
+    <meta property="og:description" content="PhD student at HKUST Intelligent Graphics Lab. 3D Vision, Computer Graphics, Geometry Processing.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/selfie/selfie.jpg">
     <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
     <link rel="icon" href="images/favicon/horse.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script>
+      /* Set theme before first paint to avoid a flash of the wrong color scheme. */
+      (function () {
+        try {
+          var stored = localStorage.getItem('yz-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
     
   </head>
 
   <body>
     <canvas id="bg-canvas"></canvas>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark / light theme" title="Switch theme">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
     <table style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -29,7 +51,7 @@
                 <p>
                 I am an incoming PhD student at <a href="https://github.com/IGL-HKUST">Intelligent Graphics Lab</a> at Hong Kong University of Science and Technology (HKUST), supervised by Professor <a href="https://liuyuan-pal.github.io/">Yuan Liu</a>. Now I am a research scientist intern at <a href="https://game.qq.com/web202406/#/pc/home">Tencent Games AI Center</a>, collaborating with Professor <a href="https://clinplayer.github.io/">Cheng Lin</a>, <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a> and <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>. </p>
                 <p>
-                Previously, I received my M. Eng. degree from <a href="https://nus.edu.sg/">National University of Singapore</a>. I also worked as an research intern at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a> with Researcher <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang</a> and Academian <a href="https://media.au.tsinghua.edu.cn/info/1009/1112.htm">Qionghai Dai</a>. 
+                Previously, I received my M. Eng. degree from <a href="https://nus.edu.sg/">National University of Singapore</a>. I also worked as a research intern at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a> with Researcher <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang</a> and Academician <a href="https://media.au.tsinghua.edu.cn/info/1009/1112.htm">Qionghai Dai</a>. 
                 I am truly fortunate that my interest in computer graphics was sparked and nurtured under the guidance of Professor <a href="https://mirela.net.technion.ac.il/">Mirela Ben-Chen</a> at the <a href="https://cggc.cs.technion.ac.il/">Center for Graphics and Geometric Computing</a> in <a href="https://www.technion.ac.il/en/">Technion - Israel Institute of Technology</a>.
                             </p>
                 <p style="text-align:center">
@@ -190,7 +212,7 @@
                     <tr>
                       <td style="padding:16px;width:25%;vertical-align:middle">
                         <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
-                          <img src='images/publication/PartLLM.jpg' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                          <img src='images/publication/PartLLM.jpg' width="100%" style="object-fit:cover; height:180px; border-radius:6px;" alt="PartLLM teaser figure" loading="lazy">
                         </div>
                       </td>
                       <td style="padding:16px;width:75%;vertical-align:middle">
@@ -317,7 +339,7 @@
                     <tr>
                       <td style="padding:16px;width:25%;vertical-align:middle">
                         <div style="width:100%; height:180px; display:flex; align-items:center; justify-content:center;">
-                          <img src='images/publication/voxscene.jpg' width="100%" style="object-fit:contain; height:180px; border-radius:6px;">
+                          <img src='images/publication/voxscene.jpg' width="100%" style="object-fit:contain; height:180px; border-radius:6px;" alt="VoxScene teaser figure" loading="lazy">
                         </div>
                       </td>
                       <td style="padding:16px;width:75%;vertical-align:middle">
@@ -357,7 +379,7 @@
             <tr>
               <td style="padding:16px;width:25%;vertical-align:middle">
                 <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
-                  <img src='video/publication/M3DLayoutlivingroom.gif' width="100%" style="border-radius:6px; object-fit:cover; height:180px;">
+                  <img src='video/publication/M3DLayoutlivingroom.gif' width="100%" style="border-radius:6px; object-fit:cover; height:180px;" alt="M3DLayout animated teaser" loading="lazy">
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
@@ -373,11 +395,11 @@
                 <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
                 <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
                 <a href="https://openreview.net/profile?id=~Li_Lin10"> Li Lin</a>,
-                <a href="https://www.bing.com/search?q=yuwang%20wang&amp;qs=n&amp;form=QBRE&amp;sp=-1&amp;lq=0&amp;pq=yuwang%20wan&amp;sc=9-10&amp;sk=&amp;cvid=1EBC3BE218C94F33917E43FCD2A2804C">Yuwang Wang†</a>
+                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&amp;hl=en">Yuwang Wang†</a>
                 <br>
                 <em>Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2026
                 <br>
-                <span style="color:red;">(Highlight Presentation, Acceptance Rate 3.5%)</span>
+                <span class="highlight-note">(Highlight Presentation, Acceptance Rate 3.5%)</span>
                 <br>
                 <a href="https://graphic-kiliani.github.io/M3DLayout/">project page</a>
                 /
@@ -403,7 +425,7 @@
             <tr>
               <td style="padding:16px;width:25%;vertical-align:middle">
                 <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
-                  <img src='images/publication/flashmesh.jpg' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                  <img src='images/publication/flashmesh.jpg' width="100%" style="object-fit:cover; height:180px; border-radius:6px;" alt="FlashMesh teaser figure" loading="lazy">
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
@@ -445,7 +467,7 @@
             <tr>
               <td style="padding:16px;width:25%;vertical-align:middle">
                 <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
-                  <img src='images/publication/PartSAM_teaser.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                  <img src='images/publication/PartSAM_teaser.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;" alt="PartSAM teaser figure" loading="lazy">
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
@@ -456,8 +478,8 @@
                 </div>
                 <br> -->
                 <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
-                <a href="https://henzler.github.io/">Le Wan</a>,
-                <a href="https://openreview.net/profile?id=~Le_Wan1">Rui Xu</a>,
+                <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
+                Rui Xu,
                 <strong>Yiheng Zhang</strong>, 
                 <a href="https://chenhonghua.github.io/clay.github.io/">Honghua Chen</a>, 
                 <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
@@ -488,7 +510,7 @@
             <tr>
               <td style="padding:16px;width:25%;vertical-align:middle">
                 <div style="width:100%; height:180px; display:flex; align-items:center;justify-content:center;">
-                  <img src='images/publication/lss3d.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;">
+                  <img src='images/publication/lss3d.png' width="100%" style="object-fit:cover; height:180px; border-radius:6px;" alt="LSS3D teaser figure" loading="lazy">
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
@@ -871,6 +893,12 @@
             projected.push(project(p));
           }
 
+          // Pick colors that match the current theme.
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const lineRGB = isDark ? '147, 197, 253' : '15, 36, 119';
+          const nodeRGB = isDark ? '96, 165, 250' : '29, 78, 216';
+          const alphaScale = isDark ? 1.6 : 1.0;
+
           // Draw edges between nearby points to form a mesh.
           ctx.lineWidth = 0.8;
           const linkDistance = 110;
@@ -880,8 +908,8 @@
               const dy = projected[i].y - projected[j].y;
               const dist = Math.sqrt(dx * dx + dy * dy);
               if (dist < linkDistance) {
-                const alpha = (1 - dist / linkDistance) * 0.18;
-                ctx.strokeStyle = 'rgba(15, 36, 119, ' + alpha.toFixed(3) + ')';
+                const alpha = (1 - dist / linkDistance) * 0.18 * alphaScale;
+                ctx.strokeStyle = 'rgba(' + lineRGB + ', ' + alpha.toFixed(3) + ')';
                 ctx.beginPath();
                 ctx.moveTo(projected[i].x, projected[i].y);
                 ctx.lineTo(projected[j].x, projected[j].y);
@@ -894,7 +922,7 @@
           for (let i = 0; i < projected.length; i++) {
             const p = projected[i];
             const r = 1.4 * p.scale;
-            ctx.fillStyle = 'rgba(29, 78, 216, ' + (0.18 * p.scale).toFixed(3) + ')';
+            ctx.fillStyle = 'rgba(' + nodeRGB + ', ' + (0.18 * p.scale * alphaScale).toFixed(3) + ')';
             ctx.beginPath();
             ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
             ctx.fill();
@@ -903,6 +931,33 @@
           requestAnimationFrame(draw);
         }
         draw();
+      })();
+    </script>
+
+    <script>
+      /* Theme toggle: persist the choice and follow system changes until the user picks one. */
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+
+        btn.addEventListener('click', function () {
+          var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          try {
+            localStorage.setItem('yz-theme', next);
+          } catch (e) {}
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+          var stored = null;
+          try {
+            stored = localStorage.getItem('yz-theme');
+          } catch (err) {}
+          if (!stored) {
+            root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+          }
+        });
       })();
     </script>
   </body>
