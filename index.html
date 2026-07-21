@@ -7,6 +7,8 @@
 
     <meta name="author" content="Yiheng Zhang">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Yiheng Zhang (张一恒) — PhD student at HKUST Intelligent Graphics Lab. Research in 3D vision, computer graphics, geometry processing, and physically based simulation.">
+    <meta name="keywords" content="Yiheng Zhang, Computer Graphics, 3D Vision, Geometry Processing, Mesh Generation, HKUST">
     <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
     <link rel="icon" href="images/favicon/horse.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -14,19 +16,20 @@
   </head>
 
   <body>
+    <canvas id="bg-canvas"></canvas>
     <table style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table class="intro-table" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <td class="intro-text" style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
                   Yiheng Zhang 张一恒
                 </p>
                 <p>
                 I am an incoming PhD student at <a href="https://github.com/IGL-HKUST">Intelligent Graphics Lab</a> at Hong Kong University of Science and Technology (HKUST), supervised by Professor <a href="https://liuyuan-pal.github.io/">Yuan Liu</a>. Now I am a research scientist intern at <a href="https://game.qq.com/web202406/#/pc/home">Tencent Games AI Center</a>, collaborating with Professor <a href="https://clinplayer.github.io/">Cheng Lin</a>, <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a> and <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>. </p>
                 <p>
-                Prviously, I received my M. Eng. degree from <a href="https://nus.edu.sg/">National University of Singapore</a>. I also worked as an research intern at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a> with Researcher <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang</a> and Academian <a href="https://media.au.tsinghua.edu.cn/info/1009/1112.htm">Qionghai Dai</a>. 
+                Previously, I received my M. Eng. degree from <a href="https://nus.edu.sg/">National University of Singapore</a>. I also worked as an research intern at <a href="https://www.tsinghua.edu.cn/">Tsinghua University</a> with Researcher <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang</a> and Academian <a href="https://media.au.tsinghua.edu.cn/info/1009/1112.htm">Qionghai Dai</a>. 
                 I am truly fortunate that my interest in computer graphics was sparked and nurtured under the guidance of Professor <a href="https://mirela.net.technion.ac.il/">Mirela Ben-Chen</a> at the <a href="https://cggc.cs.technion.ac.il/">Center for Graphics and Geometric Computing</a> in <a href="https://www.technion.ac.il/en/">Technion - Israel Institute of Technology</a>.
                             </p>
                 <p style="text-align:center">
@@ -34,13 +37,13 @@
                   <a href="data/CV_Yiheng_Zhang_mask.pdf.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://www.linkedin.com/in/yiheng-kiliani-zhang-721382300/">Linkedin</a> &nbsp;/&nbsp;
                   <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp;/&nbsp; -->
-                  <!-- <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp; -->
+                  <!-- <a href="https://scholar.google.com/citations?hl=en&amp;user=jktWnL8AAAAJ">Scholar</a> &nbsp;/&nbsp; -->
                   <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp;/&nbsp; -->
                   <a href="https://github.com/Graphic-Kiliani">Github</a>
                 </p>
               </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/selfie/selfie.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/selfie/selfie.jpg" class="hoverZoomLink"></a>
+              <td class="intro-photo" style="padding:2.5%;width:37%;max-width:37%">
+                <a href="images/selfie/selfie.jpg"><img style="width:100%;max-width:100%;object-fit: cover;" alt="profile photo" src="images/selfie/selfie.jpg" class="hoverZoomLink profile-photo"></a>
               </td>
               
             </tr>
@@ -102,9 +105,7 @@
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research Experience</h2>
-                <p>
-                
-                
+                <ul style="margin-top:4px;margin-bottom:12px;padding-left:20px;">
                 <li style="margin-bottom:4px;">
                   <span style="font-weight:bold;">Sep. 2025 – Now :</span>
                   &nbsp;Research Scientist Intern,
@@ -128,15 +129,14 @@
                   &nbsp;Summer Research Intern,
                   <a href="https://cggc.cs.technion.ac.il">Center for Graphics and Geometric Computing (Technion) </a>.
                 </li>
-                 <!-- Logo  -->
-                <div style="margin-top:16px;text-align:left;">
-                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
-                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
-                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
-                <img src="images/research_exp/technion_logo.jpg" alt="Technion" style="height:100px;margin-right:30px;border-radius:8px;border:1px solid #e8e8e8;padding:12px;background-color:#fafafa;">
-
-                </div>
               </ul>
+              <!-- Logo  -->
+              <div class="research-logos">
+                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center">
+                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST">
+                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua">
+                <img src="images/research_exp/technion_logo.jpg" alt="Technion">
+              </div>
           </tbody></table>
 
 
@@ -171,8 +171,8 @@
                 </ul>
 
                 <p>
-                  <span style="font-weight:bold; color:#0d47a1; background-color:#e3f2fd; padding:10px 16px; border-radius:6px; display:inline-block; border-left:4px solid #1976d2;">
-                    💡 I am always open to discussions and collaborations, feel free to contact me anytime!
+                  <span class="callout">
+                    I am always open to discussions and collaborations, feel free to contact me anytime!
                   </span>
                 </p>
               </td>
@@ -267,7 +267,7 @@
                         <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
                         <a href="https://jiepengwang.github.io/">Jiepeng Wang</a>,
                         <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
-                        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&amp;hl=en">Yuwang Wang</a>,
                         <a href="https://engineering.tamu.edu/cse/profiles/Wang-Wenping.html">Wenping Wang</a>,
                         <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
                         <a href="https://clinplayer.github.io/">Cheng Lin†</a>
@@ -300,6 +300,16 @@
             }
             </script>
 
+            <!-- Stub hover handlers for publications without custom video previews -->
+            <script>
+              function ever_start() {}
+              function ever_stop() {}
+              function r2r_start() {}
+              function r2r_stop() {}
+              function simvs_start() {}
+              function simvs_stop() {}
+            </script>
+
             <tr>
               <td colspan="2" style="padding:0px;">
                 <div class="publication-card">
@@ -307,7 +317,7 @@
                     <tr>
                       <td style="padding:16px;width:25%;vertical-align:middle">
                         <div style="width:100%; height:180px; display:flex; align-items:center; justify-content:center;">
-                          <img src='images/publication/voxscene.png' width="100%" style="object-fit:contain; height:180px; border-radius:6px;">
+                          <img src='images/publication/voxscene.jpg' width="100%" style="object-fit:contain; height:180px; border-radius:6px;">
                         </div>
                       </td>
                       <td style="padding:16px;width:75%;vertical-align:middle">
@@ -323,7 +333,7 @@
                         Yang Zhao,
                         Hui Wang,
                         <strong>Yiheng Zhang</strong>,
-                        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                        <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&amp;hl=en">Yuwang Wang</a>,
                         Chenliang Zhou,
                         Yan Zhang,
                         <a href="https://www.ece.pku.edu.cn/en/info/1159/1385.htm">Fangcheng Zhong</a>,
@@ -351,9 +361,7 @@
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
-                <a href="https://graphic-kiliani.github.io/M3DLayout/">
                   <span class="papertitle">M3DLayout: A Multi-Source Dataset of 3D Indoor Layouts and Structured Descriptions for 3D Generation</span>
-                </a>
                 <br>
                 <!-- <div style="margin-top:8px;">
                   <span class="paper-tag tag-conference">CVPR 2026</span>
@@ -365,7 +373,7 @@
                 <a href="https://openreview.net/profile?id=~Meitong_Guo1">Meitong Guo</a>,
                 <a href="https://github.com/tingyunaiai9">Tianxiao Li</a>,
                 <a href="https://openreview.net/profile?id=~Li_Lin10"> Li Lin</a>,
-                <a href="https://www.bing.com/search?q=yuwang%20wang&qs=n&form=QBRE&sp=-1&lq=0&pq=yuwang%20wan&sc=9-10&sk=&cvid=1EBC3BE218C94F33917E43FCD2A2804C">Yuwang Wang†</a>
+                <a href="https://www.bing.com/search?q=yuwang%20wang&amp;qs=n&amp;form=QBRE&amp;sp=-1&amp;lq=0&amp;pq=yuwang%20wan&amp;sc=9-10&amp;sk=&amp;cvid=1EBC3BE218C94F33917E43FCD2A2804C">Yuwang Wang†</a>
                 <br>
                 <em>Conference on Computer Vision and Pattern Recognition (<strong>CVPR</strong>)</em>, 2026
                 <br>
@@ -399,9 +407,7 @@
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
-                <a href="https://zazexy.github.io/flashmesh.github.io/">
                   <span class="papertitle">FlashMesh: Faster and Better Autoregressive Mesh Synthesis via Structured Speculation</span>
-                </a>
                 <br>
                 <!-- <div style="margin-top:8px;">
                   <span class="paper-tag tag-conference">CVPR 2026</span>
@@ -413,7 +419,7 @@
                 <a href="https://openreview.net/profile?id=~Chuan_Ping1">Chuan Ping</a>,
                 <a href="https://openreview.net/profile?id=~Zixing_Zhao1">Zixing Zhao</a>,
                 <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
-                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&hl=en">Yuwang Wang</a>,
+                <a href="https://scholar.google.com/citations?user=KhFGpFIAAAAJ&amp;hl=en">Yuwang Wang</a>,
                 <a href="https://www.ece.pku.edu.cn/en/info/1057/1179.htm">Ronggang Wang</a>,
                 <a href="https://shengfenghe.github.io/">Shengfeng He†</a>
                 <br>
@@ -443,12 +449,10 @@
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
-                <a href="https://czvvd.github.io/PartSAMPage/">
                   <span class="papertitle">PartSAM: A Scalable Promptable Part Segmentation Model Trained on Native 3D Data</span>
-                </a>
                 <br>
-                <div style="margin-top:8px;">
-                  <!-- <span class="paper-tag tag-conference">ICLR 2026</span>
+                <!-- <div style="margin-top:8px;">
+                  <span class="paper-tag tag-conference">ICLR 2026</span>
                 </div>
                 <br> -->
                 <a href="https://czvvd.github.io/homepage/">Zhe Zhu</a>,
@@ -459,7 +463,7 @@
                 <a href="https://frank-zy-dou.github.io/">Zhiyang Dou</a>,
                 <a href="https://clinplayer.github.io/">Cheng Lin</a>,
                 <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
-                <a href="https://scholar.google.com/citations?user=TdrJj8MAAAAJ&hl=en">Mingqiang Wei†</a>
+                <a href="https://scholar.google.com/citations?user=TdrJj8MAAAAJ&amp;hl=en">Mingqiang Wei†</a>
                 <br>
                 <em>International Conference on Learning Representations (<strong>ICLR</strong>)</em>, 2026
                 <br>
@@ -488,9 +492,7 @@
                 </div>
               </td>
               <td style="padding:16px;width:75%;vertical-align:middle">
-                <a href="https://arxiv.org/abs/2511.12202">
                   <span class="papertitle">LSS3D: Learnable Spatial Shifting for Consistent and High-Quality 3D Generation from Single-Image</span>
-                </a>
                 <br>
                 <!-- <div style="margin-top:8px;">
                   <span class="paper-tag tag-conference">IEEE MMSP 2025</span>
@@ -502,7 +504,7 @@
                 <a href="https://openreview.net/profile?id=~Mingdao_Wang1">Mingdao Wang</a>,
                 <a href="https://openreview.net/profile?id=~Yuwang_Wang3">Yuwang Wang†</a>
                 <br>
-                <em>IEEE MMSP</em>, 2025 (IF: 7.3)
+                <em>IEEE MMSP</em>, 2025
                 <br>
                 <a href="https://arxiv.org/abs/2511.12202">arXiv</a>
                 <p></p>
@@ -513,14 +515,14 @@
       </td>
     </tr>
 
-    <tr>
+    <tr class="service-row">
       <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-         <div class="colored-box" style="background-color: #c6b89e;">
+         <div class="colored-box">
          <h2>Academic Service</h2>
          </div>
       </td>
       <td style="padding:8px;width:80%;vertical-align:center">
-        Techical Program Committee, Pacific Graphics 2026
+        Technical Program Committee, Pacific Graphics 2026
         <br>
         <!-- <a href="https://cvpr.thecvf.com/Conferences/2025/Organizers">Lead Area Chair, CVPR 2025</a>
         <br>
@@ -530,7 +532,7 @@
         <br>
         <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
         <br>
-        <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
+        <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair &amp; Award Committee Member, CVPR 2021</a>
         <br>
         <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
         <br>
@@ -672,7 +674,7 @@
                 <br>
                 <a href="https://arxiv.org/abs/1704.07483">Continuously Differentiable Exponential Linear Units</a>
                 <br>
-                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars & Big Models: How Can Academics Adapt?</a>
+                <a href="https://jonbarron.info/data/cvpr2023_llm_workshop_annotated.pdf">Scholars &amp; Big Models: How Can Academics Adapt?</a>
               </td>
             </tr>
 
@@ -690,7 +692,7 @@
 </a><br>
                 <a href="https://youtu.be/TvWkwDYtBP4?t=7604">EGSR Keynote, 2021</a><br>
 				<a href="https://www.youtube.com/watch?v=nRyOzHpcr4Q">TUM AI Lecture Series, 2020</a><br>
-				<a href="https://www.youtube.com/watch?v=HfJpQCBTqZs">Vision & Graphics Seminar at MIT, 2020</a>
+				<a href="https://www.youtube.com/watch?v=HfJpQCBTqZs">Vision &amp; Graphics Seminar at MIT, 2020</a>
               </td>
             </tr>
 
@@ -711,7 +713,7 @@
                 <br>
                 <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
                 <br>
-                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair & Award Committee Member, CVPR 2021</a>
+                <a href="http://cvpr2021.thecvf.com/area-chairs">Area Chair &amp; Award Committee Member, CVPR 2021</a>
                 <br>
                 <a href="http://cvpr2019.thecvf.com/area_chairs">Area Chair, CVPR 2019</a>
                 <br>
@@ -759,7 +761,7 @@
                     My Chinese zodiac sign is 'Horse', and my favorite color is blue.
                   </p>
                   <p style="margin-bottom:20px;">
-                    My hobbies include playing soccer<img src="images/favicon/soccer.png" alt="Soccer" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> & badminton<img src="images/favicon/badminton.png" alt="Badminton" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> & Chinese chess<img src="images/favicon/chinesechess.png" alt="Chinese Chess" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, fitness<img src="images/favicon/fitness.png" alt="Fitness" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, and traveling all around the world<img src="images/favicon/travelling.png" alt="Travelling" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;">.
+                    My hobbies include playing soccer<img src="images/favicon/soccer.png" alt="Soccer" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> &amp; badminton<img src="images/favicon/badminton.png" alt="Badminton" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;"> &amp; Chinese chess<img src="images/favicon/chinesechess.png" alt="Chinese Chess" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, fitness<img src="images/favicon/fitness.png" alt="Fitness" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;margin-right:4px;">, and traveling all around the world<img src="images/favicon/travelling.png" alt="Travelling" style="width:20px;height:20px;vertical-align:middle;margin-left:4px;">.
                   </p>
                   <div style="text-align:center;margin-top:50px;">
                     <div style="width:260px; height:260px; margin:0 auto; overflow:hidden;">
@@ -774,5 +776,134 @@
         </td>
       </tr>
     </table>
+    <script>
+      /* Lightweight 3D wireframe mesh background — reflects the graphics research theme. */
+      (function() {
+        const canvas = document.getElementById('bg-canvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let width, height, dpr;
+
+        function resize() {
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width * dpr;
+          canvas.height = height * dpr;
+          canvas.style.width = width + 'px';
+          canvas.style.height = height + 'px';
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        const mouse = { x: width * 0.5, y: height * 0.5 };
+        window.addEventListener('mousemove', (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        });
+        window.addEventListener('touchmove', (e) => {
+          if (e.touches[0]) {
+            mouse.x = e.touches[0].clientX;
+            mouse.y = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        // Build a sparse 3D lattice of points.
+        const points = [];
+        const spacing = 105;
+        const cols = 7, rows = 5, depth = 4;
+        for (let z = 0; z < depth; z++) {
+          for (let y = 0; y < rows; y++) {
+            for (let x = 0; x < cols; x++) {
+              points.push({
+                ox: (x - cols / 2) * spacing + (Math.random() - 0.5) * 30,
+                oy: (y - rows / 2) * spacing + (Math.random() - 0.5) * 30,
+                oz: (z - depth / 2) * spacing + (Math.random() - 0.5) * 30,
+                vx: 0, vy: 0, vz: 0
+              });
+            }
+          }
+        }
+
+        let angleX = 0, angleY = 0;
+
+        function rotateX(p, angle) {
+          const cos = Math.cos(angle), sin = Math.sin(angle);
+          const y = p.y * cos - p.z * sin;
+          const z = p.y * sin + p.z * cos;
+          return { x: p.x, y: y, z: z };
+        }
+
+        function rotateY(p, angle) {
+          const cos = Math.cos(angle), sin = Math.sin(angle);
+          const x = p.x * cos - p.z * sin;
+          const z = p.x * sin + p.z * cos;
+          return { x: x, y: p.y, z: z };
+        }
+
+        function project(p) {
+          const perspective = 900;
+          const scale = perspective / (perspective + p.z + 500);
+          return {
+            x: p.x * scale + width * 0.5,
+            y: p.y * scale + height * 0.5,
+            scale: scale
+          };
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+
+          // Subtle mouse parallax and slow auto-rotation.
+          const targetAngleY = ((mouse.x / width) - 0.5) * 0.5;
+          const targetAngleX = ((mouse.y / height) - 0.5) * 0.5;
+          angleY += (targetAngleY - angleY) * 0.03;
+          angleX += (targetAngleX - angleX) * 0.03;
+          angleY += 0.0015;
+
+          const projected = [];
+          for (let i = 0; i < points.length; i++) {
+            const pt = points[i];
+            let p = { x: pt.ox, y: pt.oy, z: pt.oz };
+            p = rotateY(p, angleY);
+            p = rotateX(p, angleX);
+            projected.push(project(p));
+          }
+
+          // Draw edges between nearby points to form a mesh.
+          ctx.lineWidth = 0.8;
+          const linkDistance = 110;
+          for (let i = 0; i < projected.length; i++) {
+            for (let j = i + 1; j < projected.length; j++) {
+              const dx = projected[i].x - projected[j].x;
+              const dy = projected[i].y - projected[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < linkDistance) {
+                const alpha = (1 - dist / linkDistance) * 0.18;
+                ctx.strokeStyle = 'rgba(15, 36, 119, ' + alpha.toFixed(3) + ')';
+                ctx.beginPath();
+                ctx.moveTo(projected[i].x, projected[i].y);
+                ctx.lineTo(projected[j].x, projected[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Draw nodes.
+          for (let i = 0; i < projected.length; i++) {
+            const p = projected[i];
+            const r = 1.4 * p.scale;
+            ctx.fillStyle = 'rgba(29, 78, 216, ' + (0.18 * p.scale).toFixed(3) + ')';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          requestAnimationFrame(draw);
+        }
+        draw();
+      })();
+    </script>
   </body>
 </html>
