@@ -121,7 +121,11 @@
                 </p>
               </td>
               <td class="intro-photo" style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/selfie/selfie.jpg"><img style="width:100%;max-width:100%;object-fit: cover;" alt="profile photo" src="images/selfie/selfie.jpg" class="hoverZoomLink profile-photo"></a>
+                <a href="images/selfie/selfie.jpg" class="photo-swap profile-photo" aria-label="Profile photo">
+                  <img class="photo-layer photo-base" src="images/selfie/selfie.jpg" alt="profile photo">
+                  <img class="photo-layer photo-alt" src="images/selfie/selfie_mosaic.png" alt="" aria-hidden="true">
+                  <canvas class="photo-fx" aria-hidden="true"></canvas>
+                </a>
               </td>
               
             </tr>
@@ -184,25 +188,25 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Research Experience</h2>
                 <div class="timeline">
-                  <div class="timeline-item">
+                  <div class="timeline-item" data-logo="tencent">
                     <span class="timeline-date">Sep 2025 — Now</span>
                     Research Scientist Intern,
                     <a href="https://game.qq.com/web202406/#/pc/home">Tencent Games AI Center</a>.
                   </div>
 
-                  <div class="timeline-item">
+                  <div class="timeline-item" data-logo="hkust">
                     <span class="timeline-date">Jun 2025 — Jul 2026</span>
                     Remote Research Intern,
                     <a href="https://isd.hkust.edu.hk">Intelligent Graphics Lab (HKUST)</a>.
                   </div>
 
-                  <div class="timeline-item">
+                  <div class="timeline-item" data-logo="tsinghua">
                     <span class="timeline-date">Oct 2024 — Aug 2025</span>
                     Research Intern,
                     <a href="https://www.tsinghua.edu.cn/">Metaverse AI Interdisciplinary Innovation Lab (THU)</a>.
                   </div>
 
-                  <div class="timeline-item">
+                  <div class="timeline-item" data-logo="technion">
                     <span class="timeline-date">Jul 2024 — Aug 2024</span>
                     Summer Research Intern,
                     <a href="https://cggc.cs.technion.ac.il">Center for Graphics and Geometric Computing (Technion)</a>.
@@ -210,10 +214,10 @@
                 </div>
               <!-- Logo  -->
               <div class="research-logos">
-                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center">
-                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST">
-                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua">
-                <img src="images/research_exp/technion_logo.jpg" alt="Technion">
+                <img src="images/research_exp/tencent_games_logo.jpg" alt="Tencent Games AI Center" data-logo="tencent">
+                <img src="images/research_exp/HKUST_logo.jpg" alt="HKUST" data-logo="hkust">
+                <img src="images/research_exp/tsinghua_logo.jpg" alt="Tsinghua" data-logo="tsinghua">
+                <img src="images/research_exp/technion_logo.jpg" alt="Technion" data-logo="technion">
               </div>
           </tbody></table>
 
@@ -1253,6 +1257,109 @@
           var el = document.getElementById(id);
           if (el) observer.observe(el);
         });
+      })();
+    </script>
+
+    <script>
+      /* Selfie <-> mosaic swap with a pixel-refine transition, plus
+         experience-entry hover highlighting the matching institution logo. */
+      (function () {
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        /* ---- Photo mosaic swap ---- */
+        var swap = document.querySelector('.photo-swap');
+        if (swap) {
+          var base = swap.querySelector('.photo-base');
+          var alt = swap.querySelector('.photo-alt');
+          var canvas = swap.querySelector('.photo-fx');
+          var ctx = canvas.getContext('2d');
+          var off = document.createElement('canvas');
+          var offCtx = off.getContext('2d');
+          var anim = null;
+
+          var baseImg = new Image();
+          baseImg.src = base.getAttribute('src');
+          var altImg = new Image();
+          altImg.src = alt.getAttribute('src');
+
+          function fitCanvas() {
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var w = swap.clientWidth, h = swap.clientHeight;
+            canvas.width = Math.max(1, Math.round(w * dpr));
+            canvas.height = Math.max(1, Math.round(h * dpr));
+          }
+          window.addEventListener('resize', fitCanvas);
+          fitCanvas();
+
+          function drawPixelated(img, block) {
+            var w = canvas.width, h = canvas.height;
+            if (!img.complete || !img.naturalWidth) return;
+            var bw = Math.max(1, Math.round(w / block));
+            var bh = Math.max(1, Math.round(h / block));
+            off.width = bw;
+            off.height = bh;
+            // cover-fit center crop, same as object-fit: cover
+            var iw = img.naturalWidth, ih = img.naturalHeight;
+            var scale = Math.max(bw / iw, bh / ih);
+            var sw = bw / scale, sh = bh / scale;
+            var sx = (iw - sw) / 2, sy = (ih - sh) / 2;
+            offCtx.imageSmoothingEnabled = true;
+            offCtx.drawImage(img, sx, sy, sw, sh, 0, 0, bw, bh);
+            ctx.imageSmoothingEnabled = false;
+            ctx.clearRect(0, 0, w, h);
+            ctx.drawImage(off, 0, 0, bw, bh, 0, 0, w, h);
+          }
+
+          function transitionTo(toAlt) {
+            if (reduceMotion) {
+              alt.style.opacity = toAlt ? '1' : '0';
+              return;
+            }
+            if (anim) cancelAnimationFrame(anim);
+            var duration = 750;
+            var maxBlock = 26;
+            var t0 = null;
+            canvas.style.opacity = '1';
+            function frame(ts) {
+              if (!t0) t0 = ts;
+              var t = Math.min(1, (ts - t0) / duration);
+              // coarse in the middle, crisp at both ends — mosaic dissolve
+              var block = 1 + (maxBlock - 1) * Math.sin(Math.PI * t);
+              var img = t < 0.5 ? (toAlt ? baseImg : altImg) : (toAlt ? altImg : baseImg);
+              drawPixelated(img, block);
+              if (t < 1) {
+                anim = requestAnimationFrame(frame);
+              } else {
+                anim = null;
+                canvas.style.opacity = '0';
+                alt.style.opacity = toAlt ? '1' : '0';
+              }
+            }
+            anim = requestAnimationFrame(frame);
+          }
+
+          swap.addEventListener('mouseenter', function () { transitionTo(true); });
+          swap.addEventListener('mouseleave', function () { transitionTo(false); });
+        }
+
+        /* ---- Experience entry -> matching logo ---- */
+        var items = document.querySelectorAll('.timeline-item[data-logo]');
+        var logos = document.querySelector('.research-logos');
+        if (items.length && logos) {
+          items.forEach(function (item) {
+            var key = item.getAttribute('data-logo');
+            var img = logos.querySelector('img[data-logo="' + key + '"]');
+            if (!img) return;
+            item.addEventListener('mouseenter', function () {
+              logos.classList.add('focus');
+              img.classList.add('logo-active');
+            });
+            item.addEventListener('mouseleave', function () {
+              logos.classList.remove('focus');
+              img.classList.remove('logo-active');
+            });
+          });
+        }
       })();
     </script>
   </body>
