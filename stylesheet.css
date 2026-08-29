@@ -765,6 +765,40 @@ button {
   opacity: 1;
 }
 
+/* Service section — grouped plain list */
+.service-group {
+  margin-bottom: 18px;
+}
+
+.service-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 8px 0;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.service-list li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.service-date {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
 /* Callout / research interest banner */
 .callout {
   background: linear-gradient(135deg, var(--callout-start) 0%, var(--callout-end) 100%);
@@ -967,21 +1001,6 @@ button {
 
   .research-logos img {
     height: 70px;
-  }
-
-  .service-row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .service-row td {
-    width: 100% !important;
-    text-align: left !important;
-    padding: 12px 16px !important;
-  }
-
-  .service-row .colored-box {
-    display: inline-block;
   }
 
   .intro-table > tbody > tr {
