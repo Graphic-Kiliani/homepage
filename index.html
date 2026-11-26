@@ -156,36 +156,39 @@
                   <div class="news-item">
                     <span class="news-date">[Jan 2026]</span> <strong>PartSAM</strong> has been accepted to <strong>ICLR 2026</strong>!
                   </div>
-                  <div class="news-item hidden" id="more-news-1">
+                  <div class="news-item">
                     <span class="news-date">[Dec 2025]</span> Attended <strong>SIGGRAPH Asia</strong> 2025 in Hong Kong, China.
                   </div>
-                  <!-- Hidden items -->
-                  <div class="news-item hidden" id="more-news-2">
+                  <div class="news-item">
                     <span class="news-date">[Sep 2025]</span> Started my journey as Research Scientist Intern at <strong>Tencent Games AI Center</strong>!
                   </div>
-                  <button class="show-more-btn" onclick="toggleNews()">Show More</button>
+                  <button type="button" class="show-more-btn hidden" aria-expanded="false">Show More</button>
                 </div>
               </td>
             </tr>
           </tbody></table>
 
           <script>
-            let newsExpanded = false;
-            function toggleNews() {
-              newsExpanded = !newsExpanded;
-              const moreItems = document.querySelectorAll('[id^="more-news-"]');
-              const btn = document.querySelector('.show-more-btn');
-              
-              moreItems.forEach(item => {
-                if (newsExpanded) {
-                  item.classList.remove('hidden');
-                } else {
-                  item.classList.add('hidden');
+            (function () {
+              const news = document.getElementById('news');
+              const moreItems = Array.from(news.querySelectorAll('.news-item')).slice(5);
+              if (moreItems.length === 0) return;
+
+              const button = news.querySelector('.show-more-btn');
+              function setExpanded(expanded) {
+                for (const item of moreItems) {
+                  item.classList.toggle('hidden', !expanded);
                 }
+                button.setAttribute('aria-expanded', String(expanded));
+                button.textContent = expanded ? 'Show Less' : 'Show More';
+              }
+
+              setExpanded(false);
+              button.addEventListener('click', () => {
+                setExpanded(button.getAttribute('aria-expanded') === 'false');
               });
-              
-              btn.textContent = newsExpanded ? 'Show Less' : 'Show More';
-            }
+              button.classList.remove('hidden');
+            })();
           </script>
           
           
