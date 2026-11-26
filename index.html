@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css?v=20261126">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script>
       /* Set theme before first paint to avoid a flash of the wrong color scheme.
@@ -272,16 +272,25 @@
           </tbody>
         </table>
 
-          <table id="publications" style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <table id="publications" style="width:100%;border:0px;border-spacing:0px 20px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+            <caption class="publication-filters" hidden>
+              <div class="publication-filter-buttons" role="group" aria-label="Filter publications">
+                <button type="button" data-publication-filter="all" aria-pressed="true">All</button>
+                <button type="button" data-publication-filter="generation" aria-pressed="false">3D Generation</button>
+                <button type="button" data-publication-filter="segmentation" aria-pressed="false">3D Segmentation</button>
+                <button type="button" data-publication-filter="agentic" aria-pressed="false">Agentic 3D</button>
+              </div>
+            </caption>
+            <tbody>
 
-            <tr>
+            <tr data-publication-topics="segmentation agentic">
               <td colspan="2" style="padding:0px;">
                 <div class="publication-card">
                   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
                     <tr>
                       <td style="padding:16px;width:25%;vertical-align:middle">
                         <div>
-                          <img src="images/publication/partagent.webp" width="840" height="840" alt="Color-coded 3D part segmentation of a biped robot" loading="lazy" decoding="async">
+                          <img src="images/publication/partagent-teaser.png" width="864" height="455" alt="PartAgent segmentation results on characters, vehicles, and everyday objects" loading="lazy" decoding="async">
                         </div>
                       </td>
                       <td style="padding:16px;width:75%;vertical-align:middle">
@@ -295,7 +304,7 @@
                         <a href="https://openreview.net/profile?id=~Le_Wan1">Le Wan</a>,
                         <a href="https://www.danxurgb.net/">Dan Xu</a>
                         <br>
-                        <em>arXiv preprint</em>, 2026
+                        <em>under review, 2027</em>
                         <br>
                         <a href="https://yangcaoai.github.io/PartAgent_ProjectPage/">project page</a>
                         /
@@ -312,7 +321,7 @@
               </td>
             </tr>
 
-            <tr onmouseout="ever_stop()" onmouseover="ever_start()">
+            <tr data-publication-topics="segmentation" onmouseout="ever_stop()" onmouseover="ever_start()">
               <td colspan="2" style="padding:0px;">
                 <div class="publication-card">
                   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -364,7 +373,7 @@
               </td>
             </tr>
             
-            <tr onmouseout="nexf_stop()" onmouseover="nexf_start()"> 
+            <tr data-publication-topics="generation" onmouseout="nexf_stop()" onmouseover="nexf_start()">
               <td colspan="2" style="padding:0px;">
                 <div class="publication-card">
                   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -406,11 +415,13 @@
                         <a href="https://liuyuan-pal.github.io/">Yuan Liu†</a>,
                         <a href="https://clinplayer.github.io/">Cheng Lin†</a>
                         <br>
-                        <em>under review, 2026</em>
+                        <em>under review, 2027</em>
                         <br>
                         <a href="https://arxiv.org/abs/2605.16813">arXiv</a>
                         /
                         <a href="https://github.com/Graphic-Kiliani/QuadLink#quadlink-autoregressive-quad-dominant-mesh-generation-via-point-relation-learning">Github</a>
+                        /
+                        <a href="https://github.com/Graphic-Kiliani/Tri2Quad-Geometry-Aware-Triangle-to-Quad-Mesh-Conversion-Operator">Tri-to-Quad Tools</a>
                         <p></p>
                       </td>
                     </tr>
@@ -444,7 +455,7 @@
               function simvs_stop() {}
             </script>
 
-            <tr>
+            <tr data-publication-topics="generation">
               <td colspan="2" style="padding:0px;">
                 <div class="publication-card">
                   <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -473,7 +484,7 @@
                         <a href="https://www.ece.pku.edu.cn/en/info/1159/1385.htm">Fangcheng Zhong</a>,
                         <a href="http://dalab.se.sjtu.edu.cn/www/home/?page_id=143">Xubo Yang</a>
                         <br>
-                        <em>under review, 2026</em>
+                        <em>under review, 2027</em>
                         <br>
                         <a href="https://arxiv.org/abs/2605.17102">arXiv</a>
                         <p></p>
@@ -484,7 +495,7 @@
               </td>
             </tr>
 
-    <tr>
+    <tr data-publication-topics="generation">
       <td colspan="2" style="padding:0px;">
         <div class="publication-card">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -530,7 +541,7 @@
 
 
 
-    <tr onmouseout="ever_stop()" onmouseover="ever_start()">
+    <tr data-publication-topics="generation" onmouseout="ever_stop()" onmouseover="ever_start()">
       <td colspan="2" style="padding:0px;">
         <div class="publication-card">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -572,7 +583,7 @@
       </td>
     </tr>
 
-    <tr onmouseout="r2r_stop()" onmouseover="r2r_start()">
+    <tr data-publication-topics="segmentation" onmouseout="r2r_stop()" onmouseover="r2r_start()">
       <td colspan="2" style="padding:0px;">
         <div class="publication-card">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -615,7 +626,7 @@
     </tr>
 
 
-    <tr onmouseout="simvs_stop()" onmouseover="simvs_start()">
+    <tr data-publication-topics="generation" onmouseout="simvs_stop()" onmouseover="simvs_start()">
       <td colspan="2" style="padding:0px;">
         <div class="publication-card">
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;">
@@ -651,6 +662,29 @@
 
     </tbody></table>
 
+          <script>
+            (function () {
+              const publications = document.getElementById('publications');
+              const filterBar = publications.querySelector('.publication-filters');
+              const filters = filterBar.querySelectorAll('button');
+              const papers = publications.querySelectorAll(':scope > tbody > tr');
+
+              for (const filter of filters) {
+                filter.addEventListener('click', function () {
+                  const topic = filter.dataset.publicationFilter;
+                  for (const paper of papers) {
+                    const topics = paper.dataset.publicationTopics?.split(/\s+/);
+                    paper.hidden = topic !== 'all' && !topics?.includes(topic);
+                  }
+                  for (const button of filters) {
+                    button.setAttribute('aria-pressed', String(button === filter));
+                  }
+                });
+              }
+              filterBar.hidden = false;
+            })();
+          </script>
+
           <table id="service" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
             <tbody>
               <tr>
@@ -671,21 +705,21 @@
                   </div>
                   <div class="service-group">
                     <p class="service-label">Academic Service</p>
-                    <ul class="service-list">
+                    <ul class="service-list academic-service-list">
                       <li>
-                        <strong>Technical Program Committee Member</strong>, <a href="https://iccvm.org/2027/">Computational Visual Media Conference (CVM)</a>
+                        <span><strong>Technical Program Committee Member</strong>, Pacific Graphics (PG)</span>
+                        <span class="service-date">2026</span>
+                      </li>
+                      <li>
+                        <span><strong>Reviewer</strong>, CAD/CG (Int. Conf. on Computer-Aided Design and Computer Graphics)</span>
+                        <span class="service-date">2026</span>
+                      </li>
+                      <li>
+                        <span><strong>Technical Program Committee Member</strong>, Computational Visual Media Conference (CVM)</span>
                         <span class="service-date">2027</span>
                       </li>
                       <li>
-                        <strong>Technical Program Committee Member</strong>, Pacific Graphics (PG)
-                        <span class="service-date">2026</span>
-                      </li>
-                      <li>
-                        <strong>Reviewer</strong>, CAD/CG (Int. Conf. on Computer-Aided Design and Computer Graphics)
-                        <span class="service-date">2026</span>
-                      </li>
-                      <li>
-                        <strong>Reviewer</strong>, ICLR
+                        <span><strong>Reviewer</strong>, ICLR, CVPR</span>
                         <span class="service-date">2027</span>
                       </li>
                     </ul>
